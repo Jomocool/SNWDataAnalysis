@@ -21,7 +21,7 @@ class DBHandler:
         self.conn.commit()
 
         # 写入文件
-        file_path = "\data"
+        file_path = "..\data"
         data_to_write="平台：{}    地址：{}    时间：{}    标签：{}    热度：{}\n".format(data.platform, data.location, data.time, data.flag, data.trend)
         with open(file_path, 'a') as file:
             file.write(data_to_write)
