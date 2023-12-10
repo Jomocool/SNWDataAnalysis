@@ -15,11 +15,19 @@ class DBHandler:
 
     def insert(self, data):
         cursor = self.conn.cursor()
-        values = "{},{},{},{}".format(data.platform, data.location, data.time, data.flag)
+        values = "{},{},{},{},{}".format(data.platform, data.location, data.time, data.flag, data.trend)
         insert_query = "INSERT INTO snw VALUES {};".format(values)
         cursor.execute(insert_query)
         self.conn.commit()
 
+        # 写入文件
+        file_path = "\data"
+        data_to_write="平台：{}    地址：{}    时间：{}    标签：{}    热度：{}\n".format(data.platform, data.location, data.time, data.flag, data.trend)
+        with open(file_path, 'a') as file:
+            file.write(data_to_write)
+
+
+# print("数据已成功写入文件。")
 
 class Data:
     def __init__(self, platform, location, time, flag, trend):
@@ -28,6 +36,8 @@ class Data:
         self.time = time
         self.flag = flag
         self.trend = trend
+
+
 
 
 # 连接到数据库
