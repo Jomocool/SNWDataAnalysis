@@ -8,6 +8,7 @@ db_config = {
     'database': 'SNWDB'  # 数据库名称
 }
 
+
 class DBHandler:
     def __init__(self, conn):
         self.conn = conn
