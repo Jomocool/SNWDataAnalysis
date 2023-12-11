@@ -4,10 +4,9 @@ import mysql.connector
 db_config = {
     'host': 'localhost',  # 数据库主机地址
     'user': 'root',  # 数据库用户名
-    'password': '12onetwo',  # 数据库密码
+    'password': 'root123456',  # 数据库密码
     'database': 'SNWDB'  # 数据库名称
 }
-
 
 class DBHandler:
     def __init__(self, conn):
@@ -17,7 +16,8 @@ class DBHandler:
         cursor = self.conn.cursor()
         values = "({},{},{},{},{},{})".format(data.platform, data.location, data.time, data.flag, data.trend, data.url)
         insert_query = "INSERT INTO snw VALUES {};".format(values)
-        print(insert_query)
+
+        # 执行SQL语句，将数据插入表中
         cursor.execute(insert_query)
         self.conn.commit()
 
@@ -31,8 +31,7 @@ class DBHandler:
             file.write(data_to_write)
 
 
-# print("数据已成功写入文件。")
-
+# 数据
 class Data:
     def __init__(self, platform, location, time, flag, trend, url):
         self.platform = platform
