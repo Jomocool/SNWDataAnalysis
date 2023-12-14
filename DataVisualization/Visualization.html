@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>社交网络数据分析展示</title>
+  <link rel="stylesheet" href="Visualization.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="controls">
+      <label for="rowsPerPage">每页展示行数：</label>
+      <select id="rowsPerPage" onchange="changeRowsPerPage()">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+      </select>
+    </div>
+
+    <!-- 数据表格开始 -->
+    <table id="data-table" class="data-table">
+      <thead>
+        <tr>
+          <th>平台</th>
+          <th>地址</th>
+          <th>时间</th>
+          <th>标签</th>
+          <th>热度</th>
+          <th>链接</th>
+        </tr>
+      </thead>
+      <tbody id="data-container">
+        <!-- 数据将通过 JavaScript 动态添加到这里 -->
+      </tbody>
+    </table>
+    <!-- 数据表格结束 -->
+
+    <div class="pagination" id="pagination">
+      <!-- 分页控件将通过 JavaScript 动态添加到这里 -->
+    </div>
+  </div>
+
+  <script src="Visualization.js"></script>
+</body>
+</html>
